@@ -1,0 +1,91 @@
+---
+const steps = [
+  {
+    number: '1',
+    title: 'Draw',
+    description:
+      'Use the multi-layer canvas to sketch your basic outline with professional drawing tools.',
+  },
+  {
+    number: '2',
+    title: 'Describe',
+    description:
+      'Tell AI what you want in a text prompt — for example, "a cat in watercolor style".',
+  },
+  {
+    number: '3',
+    title: 'Generate',
+    description:
+      'AI creates a unique artwork based on your sketch and description, ready to save or refine.',
+  },
+];
+---
+
+<section class="section" id="how-it-works">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">
+      Three simple steps from doodle to finished AI artwork.
+    </p>
+    <ol class="steps">
+      {
+        steps.map((step) => (
+          <li class="step card">
+            <div class="step-header">
+              <span class="step-number">{step.number}</span>
+              <h3>{step.title}</h3>
+            </div>
+            <p>{step.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .steps {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 768px) {
+    .steps {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-number {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .step h3 {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  .step p {
+    margin: 0;
+    color: var(--color-on-surface-variant);
+    font-size: 0.9375rem;
+  }
+</style>

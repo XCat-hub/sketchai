@@ -1,0 +1,84 @@
+---
+const features = [
+  {
+    icon: '🖌️',
+    title: 'Multi-Layer Canvas',
+    description:
+      'Professional drawing tools with layers — draw, erase, fill, and organize your sketches.',
+  },
+  {
+    icon: '🤖',
+    title: 'AI Image Generation',
+    description:
+      'Powered by Google Gemini. Turn sketches plus text prompts into complete artworks.',
+  },
+  {
+    icon: '📄',
+    title: 'Coloring Page Mode',
+    description:
+      'Generate line art and coloring book pages from text descriptions in one tap.',
+  },
+  {
+    icon: '🎭',
+    title: '10+ Art Styles',
+    description:
+      'Realistic, oil painting, anime, watercolor, pixel art, comic, 3D render, and more.',
+  },
+  {
+    icon: '📤',
+    title: 'High-Quality Export',
+    description:
+      'Save your creations in high resolution for printing, sharing, or further editing.',
+  },
+  {
+    icon: '☁️',
+    title: 'Google Drive Backup',
+    description:
+      'SketchAI Plus members can back up and restore drawings securely via Google Drive.',
+  },
+];
+---
+
+<section class="section alt-bg" id="features">
+  <div class="container">
+    <h2 class="section-title">Key Features</h2>
+    <p class="section-subtitle">
+      Everything you need to sketch, generate, and share — in one creative app.
+    </p>
+    <div class="card-grid">
+      {
+        features.map((feature) => (
+          <article class="feature card">
+            <span class="feature-icon" aria-hidden="true">{feature.icon}</span>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .alt-bg {
+    background: var(--color-surface-container);
+  }
+
+  .feature-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .feature h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  .feature p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-on-surface-variant);
+  }
+</style>

@@ -1,0 +1,186 @@
+---
+/**
+ * Shared layout for all pages.
+ */
+import '../styles/global.css';
+import { SITE } from '../data/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: string;
+}
+
+const { title, description = SITE.description, ogType = 'website' } = Astro.props;
+const pageTitle = title === SITE.name ? `${SITE.name}: ${SITE.tagline}` : `${title} — ${SITE.name}`;
+const canonicalUrl = new URL(Astro.url.pathname, SITE.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#5B5FC7" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href={`${import.meta.env.BASE_URL}`}>
+          <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width="32" height="32" />
+          <span>{SITE.name}</span>
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a href={`${import.meta.env.BASE_URL}#features`}>Features</a>
+          <a href={`${import.meta.env.BASE_URL}#pricing`}>Pricing</a>
+          <a href={`${import.meta.env.BASE_URL}#faq`}>FAQ</a>
+          <a class="nav-cta" href={SITE.playStoreUrl} target="_blank" rel="noopener noreferrer">
+            Get the App
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <strong>{SITE.name}</strong>
+          <p>{SITE.tagline}</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href={`${import.meta.env.BASE_URL}PRIVACY_POLICY.html`}>Privacy Policy</a>
+          <a href={`${import.meta.env.BASE_URL}TERMS_OF_SERVICE.html`}>Terms of Service</a>
+          <a href={`mailto:${SITE.contactEmail}`}>Contact</a>
+        </nav>
+        <p class="footer-copy">
+          &copy; {new Date().getFullYear()} {SITE.company}. Contains ads and in-app purchases.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-outline) 25%, transparent);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.875rem 0;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--color-on-surface);
+    text-decoration: none;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .nav a {
+    color: var(--color-on-surface-variant);
+    text-decoration: none;
+    font-size: 0.925rem;
+    font-weight: 500;
+  }
+
+  .nav a:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-cta {
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: var(--color-primary-container);
+    color: var(--color-on-primary-container) !important;
+  }
+
+  .site-footer {
+    margin-top: 2rem;
+    padding: 3rem 0 2rem;
+    background: var(--color-surface-container-high);
+    border-top: 1px solid color-mix(in srgb, var(--color-outline) 20%, transparent);
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-brand p {
+    margin: 0.25rem 0 0;
+    color: var(--color-on-surface-variant);
+    font-size: 0.925rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+  }
+
+  .footer-nav a {
+    color: var(--color-on-surface-variant);
+    text-decoration: none;
+    font-size: 0.925rem;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-copy {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--color-on-surface-variant);
+  }
+
+  @media (max-width: 640px) {
+    .nav a:not(.nav-cta) {
+      display: none;
+    }
+  }
+</style>

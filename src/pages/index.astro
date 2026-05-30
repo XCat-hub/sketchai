@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Features from '../components/Features.astro';
+import Pricing from '../components/Pricing.astro';
+import FAQ from '../components/FAQ.astro';
+import DownloadCTA from '../components/DownloadCTA.astro';
+import { SITE } from '../data/site';
+---
+
+<BaseLayout title={SITE.name}>
+  <Hero />
+  <HowItWorks />
+  <Features />
+  <Pricing />
+  <FAQ />
+  <DownloadCTA />
+</BaseLayout>

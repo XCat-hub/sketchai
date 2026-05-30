@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('legal', 'terms');
+if (!entry) {
+  throw new Error('Terms of service content not found');
+}
+const { Content } = await render(entry);
+---
+
+<BaseLayout title="Terms of Service" description="SketchAI Terms of Service — rules and conditions for using the app.">
+  <section class="section legal">
+    <div class="container prose">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+</style>

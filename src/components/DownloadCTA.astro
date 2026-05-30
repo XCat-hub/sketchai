@@ -1,0 +1,52 @@
+---
+import { SITE, PLAY_STORE_BADGE } from '../data/site';
+---
+
+<section class="section cta">
+  <div class="container cta-inner card">
+    <h2>Start creating today</h2>
+    <p>Download SketchAI free on Google Play and turn your next doodle into AI art.</p>
+    <a
+      class="play-badge"
+      href={SITE.playStoreUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Get SketchAI on Google Play"
+    >
+      <img src={PLAY_STORE_BADGE} alt="Get it on Google Play" width="180" height="70" />
+    </a>
+  </div>
+</section>
+
+<style>
+  .cta {
+    padding-bottom: 4rem;
+  }
+
+  .cta-inner {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-container),
+      var(--color-secondary-container)
+    );
+  }
+
+  .cta-inner h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--color-on-primary-container);
+  }
+
+  .cta-inner p {
+    margin: 0 0 1.5rem;
+    color: var(--color-on-secondary-container);
+  }
+
+  .play-badge img {
+    height: 56px;
+    width: auto;
+    margin-inline: auto;
+  }
+</style>
