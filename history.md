@@ -1,5 +1,22 @@
 # 修改历史
 
+## 2026-06-27 — 移除首页 Free & Plus 定价区块
+
+### 需求
+去掉首页「Free & Plus」介绍，并重新部署站点。
+
+### 方案
+1. 从 `index.astro` 移除 `Pricing` 组件引用
+2. 从导航栏移除 Pricing 链接
+3. 删除 `src/components/Pricing.astro`
+
+### 修改文件
+- `src/pages/index.astro`
+- `src/layouts/BaseLayout.astro`
+- `src/components/Pricing.astro`（删除）
+
+---
+
 ## 2026-06-27 — 同步应用图标与名称为 Sketch AI
 
 ### 需求
