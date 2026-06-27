@@ -1,5 +1,46 @@
 # 修改历史
 
+## 2026-06-27 — 同步应用图标与名称为 Sketch AI
+
+### 需求
+网站图标改为 ColoringBook 应用 `ic_launcher`，品牌名称与 Android 应用一致为 **Sketch AI**。
+
+### 方案
+1. 从 `Development/projects/android/ColoringBook/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp` 导出 `favicon.png`
+2. `sketchai` Astro 站点：`site.ts`、布局、组件、法律文案中的 SketchAI → Sketch AI
+3. `xcat-hub.github.io` 静态法律页同步替换图标与名称
+
+### 修改文件
+- `sketchai/public/favicon.png`（新增，删除 favicon.svg）
+- `sketchai/src/data/site.ts`
+- `sketchai/src/layouts/BaseLayout.astro`
+- `sketchai/src/components/*.astro`
+- `sketchai/src/content/legal/*.md`
+- `sketchai/src/pages/PRIVACY_POLICY.astro`
+- `sketchai/src/pages/TERMS_OF_SERVICE.astro`
+- `xcat-hub.github.io/favicon.png`、法律页 HTML
+
+---
+
+## 2026-06-27 — 创建 xcat-hub.github.io 组织根站点
+
+### 需求
+创建 `xcat-hub.github.io` 用户站点仓库，将 `app-ads.txt`、隐私政策、服务条款同步到组织根路径，使以下 URL 可直接访问：
+- `https://xcat-hub.github.io/app-ads.txt`
+- `https://xcat-hub.github.io/PRIVACY_POLICY.html`
+- `https://xcat-hub.github.io/TERMS_OF_SERVICE.html`
+
+### 方案
+1. 新建独立仓库 `/Users/wugengzhao/Documents/GitHub/xcat-hub.github.io`
+2. 从 `sketchai` 的 `gh-pages` 分支导出法律页面 HTML 及样式资源
+3. 将路径前缀 `/sketchai/` 改为根路径 `/`，导航链接指向营销站 `https://xcat-hub.github.io/sketchai/`
+4. 根目录 `index.html` 跳转到 SketchAI 营销站
+
+### 修改文件
+- `xcat-hub.github.io/`（新建独立仓库，含 8 个文件）
+
+---
+
 ## 2026-05-30 — 修复网站 Logo / Favicon 无法显示
 
 ### 问题

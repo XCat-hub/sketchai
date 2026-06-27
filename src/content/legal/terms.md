@@ -2,7 +2,7 @@
 
 **Last updated:** March 05, 2026
 
-**SketchAI** ("we," "our," or "us") provides the mobile application "SketchAI" (the "App"). Please read these Terms of Service ("Terms") carefully before using the App.
+**Sketch AI** ("we," "our," or "us") provides the mobile application "Sketch AI" (the "App"). Please read these Terms of Service ("Terms") carefully before using the App.
 
 ## 1. Acceptance of Terms
 

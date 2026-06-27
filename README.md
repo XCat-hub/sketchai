@@ -1,6 +1,6 @@
-# SketchAI Website
+# Sketch AI Website
 
-Official marketing site and legal pages for [SketchAI](https://play.google.com/store/apps/details?id=com.gzll.coloringbook) — an AI-powered drawing and coloring app for Android.
+Official marketing site and legal pages for [Sketch AI](https://play.google.com/store/apps/details?id=com.gzll.coloringbook) — an AI-powered drawing and coloring app for Android.
 
 **Live URL:** https://xcat-hub.github.io/sketchai/
 

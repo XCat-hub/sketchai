@@ -1,5 +1,5 @@
 export const SITE = {
-  name: 'SketchAI',
+  name: 'Sketch AI',
   tagline: 'Doodle to AI Art',
   description:
     'Transform your sketches into stunning AI artwork. Draw the outline, describe your vision, and let AI bring it to life.',
