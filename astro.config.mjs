@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://xcat-hub.github.io',
-  base: '/sketchai',
+  base: '/',
   trailingSlash: 'ignore',
   build: {
     format: 'file',
