@@ -1,5 +1,20 @@
 # 修改历史
 
+## 2026-06-27 — 配置 Cursor Cloud 开发环境
+
+### 需求
+为代码库搭建开发环境，安装依赖、运行应用并验证环境可用。
+
+### 方案
+- 使用 `npm ci` 安装依赖（Node 22，与 CI 一致）。
+- 通过 `npm run build` 与 `npm run dev` 验证构建与本地开发服务器（`http://localhost:4321/sketchai`）。
+- 新增 `AGENTS.md`，记录该项目为纯静态 Astro 站点、命令说明及 `/sketchai` base 路径等注意事项。
+
+### 修改文件
+- `AGENTS.md`（新增）
+- `history.md`
+
+
 ## 2026-05-30 — 修复网站 Logo / Favicon 无法显示
 
 ### 问题
